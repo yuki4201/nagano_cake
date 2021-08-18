@@ -1,0 +1,31 @@
+<main>
+  <p id="notice"></p>
+
+<h2>商品詳細</h2>
+  <table class="table">
+      <%= form_with model: @item, url:admin_item_path, local:true do |f| %>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <%= attachment_image_tag @item, :image %>
+      </tr>
+        <td>商品名</td>
+        <td><%= item.name %></td>
+        <td>商品説明</td>
+        <td><%= item.introduction %></td>
+        <td></td>
+        <td>ジャンル</td>
+        <td><%= item.genre.name %></td>
+        <td>税込価格(税抜価格)</td>
+        <td><%= item.price %></td>
+        <td>販売ステータス</td>
+　　　　<% if item.is_active == true %>
+        <td>販売中</td>
+        <% else %>
+        <td>販売停止中</td>
+        <% end %>
+        <% end %>
+    </tbody>
+      <% end %>
+  </table>
+  

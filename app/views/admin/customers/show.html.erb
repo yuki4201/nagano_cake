@@ -1,0 +1,42 @@
+<main>
+  <p id="notice"></p>
+
+<h2>さんの会員詳細</h2>
+
+  <table class="table">
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+       <th>会員ID</th>
+       <th><%= customers.id %></th>
+      </tr>
+       <th>氏名</th>
+       <th><%= customers.name %></th>
+      </tr>
+       <th>フリガナ</th>
+       <th><%= customers.name_kana %></th>
+      </tr>
+       <th>郵便番号</th>
+       <th><%= customers.postal_code %></th>
+      </tr>
+       <th>住所</th>
+       <th><%= customers.address %></th>
+      </tr>
+       <th>電話番号</th>
+       <th><%= customers.telephone_number %></th>
+      </tr>
+       <th>メールアドレス</th>
+       <th><%= customers.email %></th>
+      </tr>
+      <td>販売ステータス</td>
+      <% if item.is_active == true %>
+      <td>有効</td>
+      <% else %>
+      <td>退会</td>
+      <% end %>
+      <% end %>
+      </tr>
+      <td><%= link_to "編集する", class: "btn btn-sm btn-success" %></td>
+      <td><%= link_to "注文履歴一覧を見る", class: "btn btn-sm btn-success" %></td>
+    </tbody>
+  </table>
