@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
   
-  devise_for :public, controllers: {
-    sessions: 'public/sessions'
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions'
   }
   
   namespace :admin do
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
 
-  namespace :public do
+  namespace :customers do
     
     resources :sessions, only: [:new, :create, :destroy]
     
