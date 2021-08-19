@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'
   }
   
+  devise_for :public, controllers: {
+    sessions: 'public/sessions'
+  }
+  
   namespace :admin do
-    
-    resources :sessions, only: [:new, :create, :destroy]
     
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
@@ -23,15 +26,14 @@ Rails.application.routes.draw do
 
   namespace :public do
     
-    get '/' => 'homes#top'
+    resources :sessions, only: [:new, :create, :destroy]
     
+    get '/' => 'homes#top'
     get '/about' => 'homes#about'
     
     resources :items, only: [:index, :show]
     
     resources :registrations, only: [:new, :create]
-    
-    resources :sessions, only: [:new, :create, :destroy]
     
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
     
