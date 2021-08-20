@@ -1,35 +1,18 @@
 <main>
   <p id="notice"></p>
-
-  <div class="col-md-8 offset-md-1">
-    <h2>商品一覧</h2>
-    <%= link_to "＋", new_admin_item_path %>
-    <table class="table table-hover table-inverse">
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.name, edit_admin_item_path(item) %></td>
-        <td><%= item.price %></td>
-        <td><%= item.genre.name %></td>
-        <% if item.is_active == true %>
-        <td>販売中</td>
-        <% else %>
-        <td>販売停止中</td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p class="text-center">
+        <strong>About</strong> #文字のサイズを変更するbootstrapを探す
+      </p>
+      <center>ながのCAKEは全国発送可能なケーキ屋さんです。</center>
+      <center>お子様からお年寄りの方までお召し上がりいただけるよう、</center>
+      <center>様々なバリエーションをご用意しております</center>
+      <center>また、全国へ発送可能ですので、「いつ」でも「どこ」でもご注文いただけます</center>
+      <center>ぜひご注文ください</center>
+    </div>
+  </div>
 </div>
 </main>

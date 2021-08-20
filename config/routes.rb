@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root to: 'homes#about'
+  
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'
   }
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
   namespace :admin do
     
     get '/' => 'homes#top'
-    get '/about' => 'homes#about'
     
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
     
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    get '/my_page' => 'customers#show'
     
     resources :items, only: [:index, :show]
     
