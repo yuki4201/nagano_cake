@@ -49,6 +49,6 @@ Rails.application.routes.draw do
     get '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
     
-    resources :order_details, only: [:index, :edit, :create,:update, :destroy]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 end

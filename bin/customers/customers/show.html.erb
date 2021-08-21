@@ -1,0 +1,45 @@
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>マイページ</h2>
+        <b>登録情報</b>
+        <%= link_to "編集する", new_admin_session_path, class: "btn btn-success" %>
+        <b>配送先</b>
+        <%= link_to "一覧を見る", new_admin_session_path, class: "btn btn-primary" %>
+        <b>注文履歴</b>
+        <%= link_to "一覧を見る", new_admin_session_path, class: "btn btn-primary" %>
+        <div class="p-3"></div>
+        <thead>
+          <table border="1">
+            <tr>
+              <td>氏名</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>カナ</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td></td>
+            </tr>
+          </table>
+        </thead>
+      </div>
+    </div>
+  </div>
+</main>

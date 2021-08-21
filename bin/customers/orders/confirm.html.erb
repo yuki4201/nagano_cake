@@ -1,0 +1,59 @@
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>注文情報確認</h2>
+        <div class="p-3"></div>
+        <br>
+        <table border=0>
+          <tr><td>
+        <table border>
+          <tr>
+            <td>商品名　　　　　</td>
+            <td>単価(税込)　　　　　　</td>
+            <td>数量　　　　　</td>
+            <td>小計　　　　　</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <!-- <br> --> 　　　
+          </td>
+          <td valign="top">
+        <table border>
+          <tr>
+            <td>送料　　　　　</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>商品合計　　　　　　</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>請求金額　　　　　</td>
+            <td></td>
+          </tr>
+        </table>
+        </td></tr>
+        </table>
+        </thead>
+        </tr>
+          <td>支払方法</td>
+          <td></td>
+      　</tr>
+        </tr>
+          <td>お届け先</td>
+          <td></td>
+      　</tr>
+      　
+      　<%= link_to "注文を確定する", customers_orders_complete_path, class: "btn btn-primary" %>
+      　
+      </div>
+    </div>
+  </div>
+</main>
