@@ -37,11 +37,13 @@ Rails.application.routes.draw do
     
     resources :registrations, only: [:new, :create]
     
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+    resources :customers, only: [:show, :edit, :update]
     
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
     
-    resources :orders, only: [:new, :confilm, :complete, :create, :index, :show]
+    resources :orders, only: [:new, :create, :index, :show]
+    
+    get '/orders/complete' => 'orders/complete'
     
     resources :order_details, only: [:index, :edit, :create,:update, :destroy]
   end

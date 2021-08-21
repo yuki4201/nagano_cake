@@ -1,7 +1,8 @@
 <main>
   <p id="notice"></p>
-
-<div class="col-md-8 offset-md-1">
+  <div class="container">
+    <div class="row">
+      <div class="col">
   <h5>商品編集</h5>
   
   <%= form_with model: @item, url:admin_item_path, local:true do |f| %>
