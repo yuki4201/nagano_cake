@@ -1,4 +1,4 @@
-class Customers::AddressesController < ApplicationController
+class Customer::AddressesController < ApplicationController
 
   def index
     @addresses = Address.all

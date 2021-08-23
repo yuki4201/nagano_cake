@@ -9,10 +9,8 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin
       admin_path # ログイン後に遷移するpathを設定
-    case resource
     when Customer
-      public_items_path
-    end
+      customer_my_page_path
     end
   end
 

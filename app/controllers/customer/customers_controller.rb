@@ -1,4 +1,4 @@
-class Customers::CustomersController < ApplicationController
+class Customer::CustomersController < ApplicationController
   
   def index
     @customers = Customer.all
@@ -6,17 +6,17 @@ class Customers::CustomersController < ApplicationController
   end
   
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
   
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
   
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.update(customer_params)
-    redirect_to mypage_path(@customer.id)
+    redirect_to my_page_path(@customer.id)
   end
   
   private

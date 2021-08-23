@@ -2,12 +2,16 @@ Rails.application.routes.draw do
   
   root to: 'homes#about'
   
-  devise_for :admin, controllers: {
-    sessions: 'admin/sessions'
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations'
   }
   
   devise_for :customers, controllers: {
-    sessions: 'customers/sessions'
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
   }
   
   namespace :admin do
@@ -20,14 +24,12 @@ Rails.application.routes.draw do
     
     resources :customers, only: [:index, :show, :edit, :update]
     
-    resources :orders
+    resources :orders, only: [:show, :update]
     
     resources :order_details, only: [:update]
   end
 
-  namespace :customers do
-    
-    resources :sessions, only: [:new, :create, :destroy]
+  namespace :customer do
     
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
@@ -35,12 +37,10 @@ Rails.application.routes.draw do
     
     resources :items, only: [:index, :show]
     
-    resources :registrations, only: [:new, :create]
-    
     resources :customers, only: [:show, :edit, :update]
     
-    get '/customers/unsubscribe' => 'customers#unsubscribe'
-    get '/customers/withdraw' => 'customers#withdraw'
+    get '/unsubscribe' => 'customers#unsubscribe'
+    get '/withdraw' => 'customers#withdraw'
     
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
     
@@ -49,6 +49,6 @@ Rails.application.routes.draw do
     get '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
     
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :address, only: [:index, :edit, :create, :update, :destroy]
   end
 end
