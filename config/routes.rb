@@ -34,10 +34,11 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
     get '/my_page' => 'customers#show'
+    patch '/my_page' => 'customers#update'
     
     resources :items, only: [:index, :show]
     
-    resources :customers, only: [:show, :edit, :update]
+    resource :customers, only: [:show, :edit, :update]
     
     get '/unsubscribe' => 'customers#unsubscribe'
     get '/withdraw' => 'customers#withdraw'
@@ -49,6 +50,6 @@ Rails.application.routes.draw do
     get '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
     
-    resources :address, only: [:index, :edit, :create, :update, :destroy]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 end
