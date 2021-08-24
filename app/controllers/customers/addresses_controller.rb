@@ -1,17 +1,17 @@
-class Customer::AddressesController < ApplicationController
+class Customers::AddressesController < ApplicationController
 
   def index
     @addresses = Address.all
   end
   
-  def edit
-    @addresses = Addresses.find(params[:id])
-  end
-  
   def create
     @addresses = Address.new
     @addresses.save
-    redirect_to customers_addresses_path(@address.id)
+    redirect_to customers_addresses_path
+  end
+  
+  def edit
+    @addresses = Addresses.find(params[:id])
   end
   
   def update

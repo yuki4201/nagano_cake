@@ -1,4 +1,4 @@
-class Customer::CustomersController < ApplicationController
+class Customers::CustomersController < ApplicationController
   
   def index
     @customers = Customer.all
@@ -16,7 +16,7 @@ class Customer::CustomersController < ApplicationController
   def update
     @customer = current_customer
     @customer.update(customer_params)
-    redirect_to customer_my_page_path
+    redirect_to customers_my_page_path
   end
   
   private

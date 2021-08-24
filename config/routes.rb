@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   
   root to: 'homes#about'
   
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
   }
   
   devise_for :customers, controllers: {
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
 
-  namespace :customer do
+  namespace :customers do
     
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
@@ -51,5 +51,7 @@ Rails.application.routes.draw do
     get '/orders/complete' => 'orders#complete'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    patch '/my_page' => 'customers#update'
+    
   end
 end
