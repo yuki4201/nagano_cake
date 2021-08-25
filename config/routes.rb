@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root to: 'homes#about'
+  root to: 'customers/homes#top'
   
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     get '/withdraw' => 'customers#withdraw'
     
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    
+    get '/cart_items' => 'customers#cart_items'
     
     resources :orders, only: [:new, :create, :index, :show]
     

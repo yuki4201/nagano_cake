@@ -29,7 +29,7 @@ class Customers::AddressesController < ApplicationController
   private
   
   def item_params
-    params.require(:addresses).permit(:customer, :name, :postal_code, :address)
+    params[:order][:payment_method]
   end
   
 end

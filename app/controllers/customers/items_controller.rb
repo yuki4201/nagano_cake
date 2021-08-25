@@ -6,14 +6,14 @@ class  Customers::ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @items = Item.all
+    @item = Item.find(params[:id])
   end
   
   private
   
   def item_params
-    params.require(:item).permit(:name, :introduction, :price)
+    params.require(:item).permit(:image, :name, :price)
   end
   
 end

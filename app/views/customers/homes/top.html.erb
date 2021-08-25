@@ -10,17 +10,19 @@
           購入には会員登録が必要になります。</br>
         </p>
         <p class="left">
-          <span style="font-size:30px;">新着商品</span>
+          <span style="font-size:30px;">新着商品</span></br>
       <tbody>
       <% @items.each do |item| %>
       <tr>
-        <td><%= attachment_image_tag item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        <td><%= item.name %></td>
+        <%= link_to customers_item_path(item) do %>
+        <td><%= attachment_image_tag item, :image, format: 'jpeg', size:"200x200", fallback: "no_image.jpg" %><td></br>
+        <% end %>
+        <td><%= item.name %></td></br>
         <td>¥<%= item.price %></td>
       </tr>
       <% end %>
-
         </p>
+        <%= link_to "全ての商品を見る>", customers_items_path %>
       </div>
     </div>
   </div>

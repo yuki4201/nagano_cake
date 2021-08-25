@@ -1,0 +1,33 @@
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h5>注文情報入力</h5>
+        <%= form_with model: @order, url:customers_orders_confirm_path, local:true do |f| %>
+        <div class="form-group">
+            <label for="is_active">支払方法</label></br>
+            <%= f.radio_button :payment_method, "credit_card" %>
+            <%= f.label :payment_method, 'クレジットカード' %>
+            <%= f.radio_button :payment_method, "transfer" %>
+            <%= f.label :payment_method, '銀行振込' %>
+    　　</div>
+        <div class="form-group">
+            <label for="is_active">お届け先</label></br>
+            
+            
+        <div class="form-group">
+            <label for="postal_code">郵便番号(ハイフンなし)</label>
+            <%= f.text_field :postal_code %>
+        <div class="form-group">
+            <label for="address">住所</label>
+            <%= f.text_field :address %>
+        <div class="form-group">
+            <label for="name">宛名</label>
+            <%= f.text_field :name %>
+        </div>
+        </div>
+        </div>
+            </br>
+            <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+        <% end %>

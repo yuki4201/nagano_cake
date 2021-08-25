@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_path # ログイン後に遷移するpathを設定
     when Customer
-      customer_my_page_path
+      customers_my_page_path
     end
   end
 

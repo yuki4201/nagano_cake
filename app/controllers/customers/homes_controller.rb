@@ -5,4 +5,7 @@ class Customers::HomesController < ApplicationController
     @names = Item.page(params[:page])
   end
   
+  def about
+  end
+  
 end
