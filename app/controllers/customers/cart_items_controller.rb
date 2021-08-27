@@ -7,7 +7,8 @@ class Customers::CartItemsController < ApplicationController
   end
   
   def create
-    @item = Item.new(cart_item_params)
+    @item = CartItem.new(cart_item_params)
+    @item.customer_id = current_customer.id
     @item.save
     redirect_to customers_cart_items_path
   end
@@ -19,15 +20,15 @@ class Customers::CartItemsController < ApplicationController
   end
   
   def destroy
-    @item = Item.new(cart_item_params)
-    @item.save
-    redirect_to admin_item_path(@item.id)
+    @cart_item = Item.new(cart_item_params)
+    @cart_item.destroy
+    redirect_to customers_cart_items_path(@item.id)
   end
   
   private
   
   def cart_item_params
-    params.require(:cart).permit(:item_id, :count)
+    params.require(:cart_item).permit(:item_id, :amount)
   end
   
   

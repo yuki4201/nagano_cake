@@ -1,42 +1,41 @@
 <main>
   <p id="notice"></p>
-
-<h2>さんの会員詳細</h2>
-
-  <table class="table">
-    <tbody>
-      <% @customers.each do |customer| %>
-      <tr>
-       <th>会員ID</th>
-       <th><%= customers.id %></th>
-      </tr>
-       <th>氏名</th>
-       <th><%= customers.name %></th>
-      </tr>
-       <th>フリガナ</th>
-       <th><%= customers.name_kana %></th>
-      </tr>
-       <th>郵便番号</th>
-       <th><%= customers.postal_code %></th>
-      </tr>
-       <th>住所</th>
-       <th><%= customers.address %></th>
-      </tr>
-       <th>電話番号</th>
-       <th><%= customers.telephone_number %></th>
-      </tr>
-       <th>メールアドレス</th>
-       <th><%= customers.email %></th>
-      </tr>
-      <td>販売ステータス</td>
-      <% if item.is_active == true %>
-      <td>有効</td>
-      <% else %>
-      <td>退会</td>
-      <% end %>
-      <% end %>
-      </tr>
-      <td><%= link_to "編集する", class: "btn btn-sm btn-success" %></td>
-      <td><%= link_to "注文履歴一覧を見る", class: "btn btn-sm btn-success" %></td>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+       <p><%= @customer.last_name %>
+          <%= @customer.first_name %>さんの会員詳細</p>
+          <%= form_with model: @customer, url:edit_admin_customer_path, local:true do |f| %>
+          <div class="p-1"></div>
+          <form>
+           <label for="id" class="col-sm-2 col-form-label">会員ID</label>
+             <%= @customer.id %>
+           </br>
+           <label for="name" class="col-sm-2 col-form-label">氏名</label>
+             <%= @customer.last_name %>
+             <%= @customer.first_name %>
+           </br>
+           <label for="name_kana" class="col-sm-2 col-form-label">フリガナ</label>
+             <%= @customer.last_name_kana %>
+             <%= @customer.first_name_kana %>
+           </br>
+           <label for="postal_code" class="col-sm-2 col-form-label">郵便番号</label>
+             <%= @customer.postal_code %>
+           </br>
+           <label for="address" class="col-sm-2 col-form-label">住所</label>
+             <%= @customer.address %>
+           </br>
+           <label for="telephone_number" class="col-sm-2 col-form-label">電話番号</label>
+             <%= @customer.telephone_number %>
+           </br>
+           <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
+             <%= @customer.email %>
+           </br>
+          <div class="p-3"></div>
+          <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
+          <%= link_to "注文履歴一覧を見る", customers_orders_path, class: "btn btn-primary" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</main>

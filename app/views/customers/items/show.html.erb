@@ -12,6 +12,7 @@
     　　　<label for="amount"></label>
     　　    <%= f.select :amount, [['個数選択'],['1',1], ['2',2], ['3',3],['4',4], ['5',5]] %>
         </div>
+        <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.submit "カートに入れる", class: "btn btn-success" %>
         <% end %>
       </div>

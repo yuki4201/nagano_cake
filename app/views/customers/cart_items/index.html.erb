@@ -15,15 +15,24 @@
                 <td>小計</td>
                 <td>　　　</td>
             </tr>
+            <%= form_with model: @cart, url:customers_cart_items_path, local:true do |f| %>
+            <% @same = 110 %>
             <% @cart_items.each do |cart_item| %>
             <tr>
-                <td><%= cart_item.name %></td>
+                <td><%= cart_item.item.name %></td>
                 <td><%= cart_item.item.with_tax_price %></td>
-                <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
-                <% @合計金額 +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
-                <td><%= link_to "削除する", root_path, method: :delete, class: "btn btn-danger" %></td>
+                <td>
+                <div class="form-group">
+                  <label for="amount"></label>
+    　　            <%= f.select :amount, [['1',1], ['2',2], ['3',3],['4',4], ['5',5]] %>
+    　　            <%= f.submit "変更", class: "btn btn-success" %>
+                </div>
+                </td>
+                <td><%= @same += cart_item.subtotal %></td>
+                <td><%= link_to "削除する", customers_cart_items_path, method: :delete, class: "btn btn-danger" %></td>
               </td>
             </tr>
+            <% end %>
             <% end %>
           </table>
         </thead>

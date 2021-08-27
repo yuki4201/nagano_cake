@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'customers/homes#top'
   
+  
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     passwords: 'admin/passwords',
@@ -24,6 +25,10 @@ Rails.application.routes.draw do
     
     resources :customers, only: [:index, :show, :edit, :update]
     
+    post '/customers' => 'customers#update'
+    
+    patch '/customers' => 'customers#update'
+    
     resources :orders, only: [:show, :update]
     
     resources :order_details, only: [:update]
@@ -35,6 +40,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     get '/my_page' => 'customers#show'
     patch '/my_page' => 'customers#update'
+    delete '/customers/sign_out' => 'sessions#destroy'
     
     resources :items, only: [:index, :show]
     
@@ -49,7 +55,7 @@ Rails.application.routes.draw do
     
     resources :orders, only: [:new, :create, :index, :show]
     
-    get '/orders/confirm' => 'orders#confirm'
+    post '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]

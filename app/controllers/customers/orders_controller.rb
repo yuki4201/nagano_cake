@@ -22,14 +22,23 @@ class Customers::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @items = Item.all
+    if request.post? then
+      @order = 1
+      if params['r1'] then
+        @order = 2
+      else
+      @order = 3
+      end
+    end
   end
+  
   
   def show
   end
   
   private
   
-  def item_params
+  def order_params
     params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method)
   end
   

@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_08_19_104523) do
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "item"
-    t.integer "customer"
+    t.integer "item_id"
+    t.integer "customer_id"
     t.integer "amount"
   end
 

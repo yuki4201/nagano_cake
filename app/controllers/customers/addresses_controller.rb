@@ -28,8 +28,8 @@ class Customers::AddressesController < ApplicationController
   
   private
   
-  def item_params
-    params[:order][:payment_method]
+  def addresses_params
+    params.require(:addresses).permit(:name, :postal_code, :address)
   end
   
 end
