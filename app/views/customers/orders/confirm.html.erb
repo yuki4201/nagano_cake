@@ -9,46 +9,62 @@
         <table border=0>
           <tr><td>
         <table border>
+          <% @cart_items.each do |cart_item| %>
           <tr>
-            <td>商品名　　　　　</td>
-            <td>単価(税込)　　　　　　</td>
-            <td>数量　　　　　</td>
-            <td>小計　　　　　</td>
+            <td>商品名</td>
+            <td>単価(税込)　</td>
+            <td>数量</td>
+            <td>小計</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.with_tax_price %></td>
+            <td><%= cart_item.amount %></td>
+            <td><%= cart_item.subtotal %></td>
           </tr>
         </table>
+        <% end %>
         <!-- <br> --> 　　　
           </td>
           <td valign="top">
         <table border>
+          <% @sume = 800 %>
+          <% @sum = 0 %>
+          <% @cart_items.each do |cart_item| %>
           <tr>
-            <td>送料　　　　　</td>
-            <td></td>
+            <td>送料</td>
+            <td><%= @sumw %></td>
           </tr>
           <tr>
-            <td>商品合計　　　　　　</td>
-            <td></td>
+            <td>商品合計</td>
+            <td><% @sum  += cart_item.subtotal %></td>
           </tr>
           <tr>
-            <td>請求金額　　　　　</td>
-            <td></td>
+            <td>請求金額</td>
+            <td><% @sum  += cart_item.subtotal %></td>
           </tr>
+          　<% end %>
         </table>
         </td></tr>
         </table>
         </thead>
         </tr>
           <td>支払方法</td>
-          <td></td>
+          <td><% if @order.payment_method == 0 then %>
+          <td>クレジットカード</td>
+              <% else %>
+          <td>銀行振込</td>
+          　　　<% end %>
+          </td>
       　</tr>
-        </tr>
           <td>お届け先</td>
-          <td></td>
+          <td><% if @order.postal_code == 1 %>
+          <td> 1 </td>
+              <% elsif %>
+          <td> 2 </td>
+              <% else %>
+          <td> 3 </td>
+          　   <% end %>
       　</tr>
       　
       　<%= link_to "注文を確定する", customers_orders_complete_path, class: "btn btn-primary" %>

@@ -8,22 +8,26 @@ class Customers::CartItemsController < ApplicationController
   
   def create
     @item = CartItem.new(cart_item_params)
-    @item.customer_id = current_customer.id
+    @item.customer_id = current_customer
     @item.save
     redirect_to customers_cart_items_path
   end
   
   def update
-    @item = Item.find(params[:id])
-    @item.update
-    redirect_to admin_items_path(@item.id)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to customers_cart_items_path
   end
   
   def destroy
-    @cart_item = Item.new(cart_item_params)
-    @cart_item.destroy
-    redirect_to customers_cart_items_path(@item.id)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy(cart_item_params)
+    redirect_to customers_cart_items_path
   end
+  
+  def destroy_all
+  end
+  
   
   private
   

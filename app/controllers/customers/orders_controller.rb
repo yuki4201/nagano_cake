@@ -6,6 +6,7 @@ class Customers::OrdersController < ApplicationController
   end
   
   def confirm
+    @cart_items = CartItem.all
     @order = Order.new(order_params)
     @address = Address.find(params[:order][:address_id])
     @order.postal_code = @address.postal_code

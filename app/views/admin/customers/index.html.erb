@@ -3,29 +3,32 @@
   <div class="container">
     <div class="row">
       <div class="col">
-<h2>会員一覧</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td><%= link_to edit_admin_customer_path(customer) do %>
-            <%= customer.last_name %>
-            <%= customer.first_name %></td>
-            <% end %>
-        <td><%= customer.email %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-</main>
+        <div class="p-2"></div>
+        <h2>会員一覧</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>会員ID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @customers.each do |customer| %>
+              <tr>
+                <td><%= customer.id %></td>
+                <td><%= link_to edit_admin_customer_path(customer) do %>
+                    <%= customer.last_name %>
+                    <%= customer.first_name %></td>
+                    <% end %>
+                <td><%= customer.email %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
 
 <%= paginate @names %>

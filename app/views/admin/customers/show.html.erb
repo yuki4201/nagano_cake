@@ -1,41 +1,43 @@
 <main>
-  <p id="notice"></p>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-       <p><%= @customer.last_name %>
-          <%= @customer.first_name %>さんの会員詳細</p>
-          <%= form_with model: @customer, url:edit_admin_customer_path, local:true do |f| %>
-          <div class="p-1"></div>
-          <form>
-           <label for="id" class="col-sm-2 col-form-label">会員ID</label>
-             <%= @customer.id %>
-           </br>
-           <label for="name" class="col-sm-2 col-form-label">氏名</label>
-             <%= @customer.last_name %>
-             <%= @customer.first_name %>
-           </br>
-           <label for="name_kana" class="col-sm-2 col-form-label">フリガナ</label>
-             <%= @customer.last_name_kana %>
-             <%= @customer.first_name_kana %>
-           </br>
-           <label for="postal_code" class="col-sm-2 col-form-label">郵便番号</label>
-             <%= @customer.postal_code %>
-           </br>
-           <label for="address" class="col-sm-2 col-form-label">住所</label>
-             <%= @customer.address %>
-           </br>
-           <label for="telephone_number" class="col-sm-2 col-form-label">電話番号</label>
-             <%= @customer.telephone_number %>
-           </br>
-           <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
-             <%= @customer.email %>
-           </br>
-          <div class="p-3"></div>
-          <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
-          <%= link_to "注文履歴一覧を見る", customers_orders_path, class: "btn btn-primary" %>
-          <% end %>
-      </div>
+    <p id="notice"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="p-2"></div>
+                    <h5><%= @customer.last_name %>
+                        <%= @customer.first_name %>さんの会員詳細</h5>
+                    <%= form_with model: @customer, url:edit_admin_customer_path, local:true do |f| %>
+                    <div class="p-1"></div>
+                    <form>
+                    <label for="id" class="col-sm-2 col-form-label">会員ID</label>
+                        <%= @customer.id %>
+                    </br>
+                    <label for="name" class="col-sm-2 col-form-label">氏名</label>
+                        <%= @customer.last_name %>
+                        <%= @customer.first_name %>
+                    </br>
+                    <label for="name_kana" class="col-sm-2 col-form-label">フリガナ</label>
+                        <%= @customer.last_name_kana %>
+                        <%= @customer.first_name_kana %>
+                    </br>
+                    <label for="postal_code" class="col-sm-2 col-form-label">郵便番号</label>
+                        <%= @customer.postal_code %>
+                    </br>
+                    <label for="address" class="col-sm-2 col-form-label">住所</label>
+                        <%= @customer.address %>
+                    </br>
+                    <label for="telephone_number" class="col-sm-2 col-form-label">電話番号</label>
+                        <%= @customer.telephone_number %>
+                    </br>
+                    <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
+                        <%= @customer.email %>
+                    </br>
+                    <div class="p-3"></div>
+                    <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
+                    <%= link_to "注文履歴一覧を見る", customers_orders_path, class: "btn btn-primary" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</main>
+</main>link_to

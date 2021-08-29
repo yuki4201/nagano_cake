@@ -3,72 +3,9 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h5>注文履歴詳細</h5>
-        <html>
-          <body>
-            <br>
-            <table border=0><tr><td>注文情報
-            <table border>
-            <tr>
-              <td>注文日</td>
-              <td></td>
-            </tr>
-    　　　　　　  <tr>
-          　　　<td>配送先</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>支払方法</td>
-              <td></td>
-            </tr>
-            </table>
-            <!-- <br> -->
-            </td>
-            <td valign="top">請求情報
-            <table border>
-      　     <tr>
-              <td>商品合計</td>
-              <td></td>
-            </tr>
-            <tr>
-            　<td>配送料</td>
-            　<td></td>
-      　   　</tr>
-            <tr>
-              <th>ご請求額</th>
-              <td></td>
-            </tr>
-            </table>
-            </td>
-            </tr>
-            </table>
-            <thead>
-        <tr>
-          <th></th>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td><%= link_to customer.name, edit_admin_customer_path(customer) %></td>
-        <td><%= customer.email %></td>
-        <% if customer.is_active == true %>
-        <td>有効</td>
-        <% else %>
-        <td>退会</td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-          </body>
-        </html>
+        <p class="text-center">
+          <span style="font-size:30px;">ご注文ありがとうございました!</span>
+        </p>
       </div>
     </div>
   </div>

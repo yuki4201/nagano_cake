@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
+    get '/orders/:id' => 'orders#index'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     patch '/my_page' => 'customers#update'
