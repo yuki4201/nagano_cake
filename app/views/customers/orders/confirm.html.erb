@@ -50,7 +50,7 @@
         </thead>
         </tr>
           <td>支払方法</td>
-          <td><% if @order.payment_method == 0 then %>
+          <td><% if @order.payment_method == "credit_card" then %>
           <td>クレジットカード</td>
               <% else %>
           <td>銀行振込</td>
@@ -58,13 +58,7 @@
           </td>
       　</tr>
           <td>お届け先</td>
-          <td><% if @order.postal_code == 1 %>
-          <td> 1 </td>
-              <% elsif %>
-          <td> 2 </td>
-              <% else %>
-          <td> 3 </td>
-          　   <% end %>
+          
       　</tr>
       　
       　<%= link_to "注文を確定する", customers_orders_complete_path, class: "btn btn-primary" %>

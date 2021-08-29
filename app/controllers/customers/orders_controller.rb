@@ -12,6 +12,27 @@ class Customers::OrdersController < ApplicationController
     @order.postal_code = @address.postal_code
     @order.address = @address.address
     @order.name = @address.name
+    binding.pry
+    if params[:order][:address] == "1"
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.name
+    elsif params[:order][:address] == "2"
+      @addresses = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address] == "3"
+      address = Address.new
+      address.postal_code = params[:order][:new_postal_code]
+      address.address = params[:order][:new_address]
+      address.name = params[:order][:new_name]
+      address.customer = current_customer.id
+      address.save
+      @order.postal_code = address.postal_code
+      @order.address = address.address
+      @order.name = address.name
+    end
   end
   
   def complete
@@ -23,14 +44,6 @@ class Customers::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @items = Item.all
-    if request.post? then
-      @order = 1
-      if params['r1'] then
-        @order = 2
-      else
-      @order = 3
-      end
-    end
   end
   
   
