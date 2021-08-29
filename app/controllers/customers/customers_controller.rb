@@ -19,6 +19,7 @@ class Customers::CustomersController < ApplicationController
     redirect_to customers_my_page_path
   end
   
+  
   private
   
   def customer_params

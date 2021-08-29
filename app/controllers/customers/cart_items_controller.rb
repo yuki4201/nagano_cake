@@ -8,7 +8,7 @@ class Customers::CartItemsController < ApplicationController
   
   def create
     @item = CartItem.new(cart_item_params)
-    @item.customer_id = current_customer
+    @item.customer_id = current_customer.id
     @item.save
     redirect_to customers_cart_items_path
   end
@@ -26,6 +26,7 @@ class Customers::CartItemsController < ApplicationController
   end
   
   def destroy_all
+    @cart_item.destroy_all(cart_item_params)
   end
   
   

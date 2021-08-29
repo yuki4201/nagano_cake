@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     
     post '/orders/confirm' => 'orders#confirm'
+    post '/orders/complete' => 'orders#create'
     get '/orders/complete' => 'orders#complete'
     get '/orders/:id' => 'orders#index'
     

@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
 
       t.timestamps
       
-      t.integer :customer
+      t.integer :customer_id
       t.string :postal_code
       t.string :address
       t.string :name
