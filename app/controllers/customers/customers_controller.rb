@@ -19,6 +19,16 @@ class Customers::CustomersController < ApplicationController
     redirect_to customers_my_page_path
   end
   
+  def unsubscribe
+    @customer = current_customer
+  end
+
+  def withdraw
+    @customer = current_customer
+    @customer.update(is_valid: false)
+    reset_session
+    redirect_to new_customer_session_path
+  end
   
   private
   

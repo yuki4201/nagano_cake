@@ -8,5 +8,5 @@
 
 Admin.create!(
     email: 'ada@icloud.com',
-    encrypted_password: 'gggggg'
+    password: 'gggggg'
     )

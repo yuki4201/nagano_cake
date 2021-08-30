@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col">
         <h5>ショッピングカート</h5>
-        <%= link_to "カートを空にする", root_path, method: :delete, class: "btn btn-danger" %></td>
+        <%= link_to "カートを空にする", destroy_all_customers_cart_items_path, method: :delete, class: "btn btn-danger" %></td>
         <thead>
           <table class="table" border="2">
             <tr>
@@ -31,7 +31,7 @@
               </div>
               </td>
               <td><%= cart_item.subtotal %></td>
-              <td><%= link_to "削除する", root_path, method: :delete, class: "btn btn-danger" %></td>
+              <td><%= link_to "削除する", customers_destroy_cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
               </tr>
             <% end %>
           </table>

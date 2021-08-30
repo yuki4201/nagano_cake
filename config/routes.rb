@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
   root to: 'customers/homes#top'
-  
-  
+
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     passwords: 'admin/passwords',
@@ -46,13 +45,16 @@ Rails.application.routes.draw do
     
     resource :customers, only: [:show, :edit, :update]
     
-    get '/unsubscribe' => 'customers#unsubscribe'
+    get '/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
     get '/withdraw' => 'customers#withdraw'
+    patch '/withdraw' => 'customers#withdraw' 
     
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-    
-    get '/cart_items' => 'customers#cart_items'
-    
+    delete '/cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'
+    resources :cart_items do
+    collection do
+      delete 'destroy_all'
+      end
+    end
     resources :orders, only: [:new, :create, :index, :show]
     
     post '/orders/confirm' => 'orders#confirm'
