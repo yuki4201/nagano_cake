@@ -4,12 +4,13 @@
     <div class="row">
       <div class="col">
         <div class="p-3"></div>
-        <h2>マイページ</h2>
+        <h5>マイページ</h5>
         <b>登録情報</b>
         <%= link_to "編集する", edit_customers_customers_path, class: "btn btn-success" %>
         <div class="p-3"></div>
-        <thead>
-          <table border="1">
+        <div class="row">
+          <div class="col-7">
+            <table class="table" border=2>
             <tr>
               <td>氏名</td>
               <td><%= @customer.last_name %>
@@ -38,7 +39,7 @@
             </tr>
           </table>
         </thead>
-        <div class="p-3"></div>
+        <div class="p-1"></div>
         <b>配送先</b>
         <%= link_to "一覧を見る", customers_addresses_path, class: "btn btn-primary" %>
         <div class="p-3"></div>

@@ -59,7 +59,7 @@ Rails.application.routes.draw do
     
     post '/orders/confirm' => 'orders#confirm'
     post '/orders/complete' => 'orders#create'
-    get '/orders/complete' => 'orders#complete'
+    get '/orders/complete' => 'orders#complete', as: 'orders_show'
     get '/orders/:id' => 'orders#index'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]

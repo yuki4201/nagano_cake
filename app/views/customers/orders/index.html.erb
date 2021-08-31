@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h2>注文履歴一覧</h2>
+        <h5>注文履歴一覧</h5>
         <div class="p-3"></div>
         <thead>
           <table class="table" border="2">
@@ -27,7 +27,7 @@
                 </td>
                 <td><%= order.total_payment %></td>
                 <td><%= order.status %></td>
-                <td><%= link_to "詳細" %></td>
+                <td><%= link_to "表示する", customers_order_path(order), class: "btn btn-primary" %></td>
               </tr>
             <% end %>
             </tbody>
