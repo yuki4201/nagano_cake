@@ -15,13 +15,13 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="postal_code" class="col-sm-2 col-form-label">住所</label>
+            <label for="postal_code" class="col-sm-2">住所</label>
             <div class="col-sm-10">
-              <%= f.text_field :address, size: "50" %>
+              <%= f.text_field :address, size: "75" %>
             </div>
           </div>
           <div class="form-group row">
-            <label for="postal_code" class="col-sm-2 col-form-label">宛名</label>
+            <label for="postal_code" class="col-sm-2">宛名</label>
             <div class="col-sm-10">
               <%= f.text_field :name %>
               <%= f.submit "新規登録", class: "btn btn-success" %>
@@ -31,8 +31,7 @@
         </form>
         <div class="p-3"></div>
         <thead>
-          <table border="1">
-            <% @addresses.each do |address| %>
+          <table class=table border="2">
             <tr>
               <td>郵便番号</td> 
               <td>住所</td>
@@ -40,6 +39,7 @@
               <td>　　　</td>
             </tr>
             <tr>
+              <% @addresses.each do |address| %>
               <td><%= address.postal_code %></td>
               <td><%= address.address %></td>
               <td><%= address.name %></td>
@@ -51,9 +51,6 @@
             <% end %>
           </table>
         </thead>
-        </div>
-        </div>
-        </div>
       </div>
     </div>
   </div>

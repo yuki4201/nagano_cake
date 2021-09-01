@@ -49,7 +49,6 @@ Rails.application.routes.draw do
     get '/withdraw' => 'customers#withdraw'
     patch '/withdraw' => 'customers#withdraw' 
     
-    
     resources :cart_items do
     collection do
       delete 'destroy_all'
@@ -57,16 +56,18 @@ Rails.application.routes.draw do
     end
     delete '/cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'
     
-    resources :orders, only: [:new, :create, :index, :show]
     
+    get '/orders/complete' => 'orders#complete', as: 'orders_show'
+    
+    
+    resources :orders, only: [:new, :create, :index, :show]
+
     post '/orders/confirm' => 'orders#confirm'
     post '/orders/complete' => 'orders#create'
-    get '/orders/complete' => 'orders#complete', as: 'orders_show'
     get '/orders/:id' => 'orders#index'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     
-    get "/addresses/:id" => 'addresses#destroy'
     patch '/my_page' => 'customers#update'
     
   end
