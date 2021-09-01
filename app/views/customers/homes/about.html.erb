@@ -12,6 +12,9 @@
         <center>様々なバリエーションをご用意しております</center>
         <center>また、全国へ発送可能ですので、「いつ」でも「どこ」でもご注文いただけます</center>
         <center>ぜひご注文ください</center>
+        <center>
+          <%= attachment_image_tag @item, :image, format: 'jpeg', size:"800x400", fallback: "no_image.jpg" %>
+        </center>
       </div>
     </div>
   </div>
