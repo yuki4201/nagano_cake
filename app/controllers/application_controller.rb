@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_path # ログイン後に遷移するpathを設定
     when Customer
-      customers_my_page_path
+      customers_path
     end
   end
 
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     when :admin
       new_admin_session_path
     when :customer
-      new_customer_session_path
+      customers_path
     end
   end
 
