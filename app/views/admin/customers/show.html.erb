@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="p-2"></div>
+                <div class="p-5"></div>
                     <h5><%= @customer.last_name %>
                         <%= @customer.first_name %>さんの会員詳細</h5>
                     <%= form_with model: @customer, url:edit_admin_customer_path, local:true do |f| %>

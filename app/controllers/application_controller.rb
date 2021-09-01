@@ -15,7 +15,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-      new_customer_session_path # ログアウト後に遷移するpathを設定
+    case resource
+    when :admin
+      new_admin_session_path
+    when :customer
+      new_customer_session_path
+    end
   end
 
   def configure_permitted_parameters

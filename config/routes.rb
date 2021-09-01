@@ -65,6 +65,8 @@ Rails.application.routes.draw do
     get '/orders/:id' => 'orders#index'
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    
+    get "/addresses/:id" => 'addresses#destroy'
     patch '/my_page' => 'customers#update'
     
   end
