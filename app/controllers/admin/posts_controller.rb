@@ -1,22 +1,8 @@
-class Users::PostsController < ApplicationController
+class Admin::PostsController < ApplicationController
     
   def index
     @posts = Post.all
     @names = Post.page(params[:page])
-  end
-  
-  def new
-    @post = Post.new
-  end
-  
-  def create
-    @post = Post.new(post_params)
-    @post.save
-    redirect_to users_posts_path
-  end
-  
-  def show
-    @post = Post.find(params[:id])
   end
   
   def edit

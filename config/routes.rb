@@ -14,22 +14,34 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
- namespace :admin do
+  namespace :admin do
+    
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    
+    resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    
+    get '/unsubscribe' => 'admin#unsubscribe', as: 'confirm_unsubscribe'
+    get '/withdraw' => 'admin#withdraw'
+    patch '/withdraw' => 'admin#withdraw' 
     
   end
 
   namespace :users do
     
-    get '/' => 'homes#top'
     get '/about' => 'homes#about'
     get '/my_page' => 'users#show'
     patch '/my_page' => 'users#update'
     delete '/users/sign_out' => 'sessions#destroy'
     
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    
     resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     
-    patch '/users/plans' => 'plans#update'
+    resources :users, only: [:show, :edit, :update]
+    
+    get '/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+    get '/withdraw' => 'users#withdraw'
+    patch '/withdraw' => 'users#withdraw' 
     
   end
 end

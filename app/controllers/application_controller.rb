@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
+  protect_from_forgery :except => [:destroy]
     
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -10,7 +11,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_path # ログイン後に遷移するpathを設定
     when User
-      users_path
+      root_path
     end
   end
 
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
     when :admin
       new_admin_session_path
     when :user
-      users_path
+      root_path
     end
   end
 
