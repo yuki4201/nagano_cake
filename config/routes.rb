@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
     
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :posts, only: [:index, :edit, :update, :destroy]
     
-    resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :plans, only: [:index, :edit, :update, :destroy]
+    
+    resources :users, only: [:index, :show]
     
     get '/unsubscribe' => 'admin#unsubscribe', as: 'confirm_unsubscribe'
     get '/withdraw' => 'admin#withdraw'

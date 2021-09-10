@@ -33,6 +33,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
       
       t.string :name
+      t.string :uid
+      t.string :provider
+      t.boolean :is_active, default: true
+      t.datetime :created_at
+      t.datetime :updated_at
       
       t.timestamps null: false
     end

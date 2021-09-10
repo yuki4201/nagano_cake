@@ -5,6 +5,21 @@ class Admin::PlansController < ApplicationController
     @names = Plan.page(params[:page])
   end
 
+  def new
+    @plan = Plan.new
+  end
+  
+  def create
+    @plan = Plan.new(plan_params)
+    @plan.save
+    redirect_to users_plans_path
+  end
+  
+  def show
+    @plan = Plan.find(params[:id])
+    @plans = Plan.all
+  end
+
   def edit
     @plan = Plan.find(params[:id])
   end
